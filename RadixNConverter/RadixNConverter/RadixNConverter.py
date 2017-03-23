@@ -47,6 +47,7 @@ def convert(x):
     format.'''
     n = largestDigit(x)
     radixN = ['0'] * (n + 1) # Make room for the free space
+    radixN[0] = '*'
     while (x > 0):
         n = largestDigit(x)
         val = np.floor(x / (n**n))
@@ -55,5 +56,5 @@ def convert(x):
 
     return list(reversed(radixN))
 
-print(chr(0x190))
-
+for i in range(1,100):
+    print(str(i) + "   :     " + "".join(convert(i)))
