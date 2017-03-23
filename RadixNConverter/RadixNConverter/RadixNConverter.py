@@ -5,28 +5,12 @@ def largestDigit(x):
     approx = np.real(np.exp(lambertw(np.log(x))))
     return int(np.floor(approx))
 
-def convert(x):
-    '''Converts boring base 10 number x to a string representation of its Radix N
-    format.'''
-    n = largestDigit(x)
-    radixN = ['0'] * n
-    print(radixN)
-    while (x > 0):
-        n = largestDigit(x)
-        value = np.floor(x / (n**n))
-        radixN[n] = digitConverter(value)
-        x = x - val * (n ** n)
-
-    return radixN
-
-print(convert(1))
-
 def digitConverter(val):
     '''Converts a base-10 representation of a single digit to a radixN digit,
     following the standard convention of
     0-9, a-z, A-Z, top of the keyboard, Unicode rainbow'''
     if val < 10:
-        return str(val)
+        return str(int(val))
     elif val < 36: # the a through z sequence
         letterIndex = val - 10
         return chr(ord('a') + letterIndex)
@@ -58,4 +42,18 @@ def digitConverter(val):
     elif val == 73:
         return '+'
 
-print(digitConverter(62))
+def convert(x):
+    '''Converts boring base 10 number x to a list of strings representation of its Radix N
+    format.'''
+    n = largestDigit(x)
+    radixN = ['0'] * (n + 1) # Make room for the free space
+    while (x > 0):
+        n = largestDigit(x)
+        val = np.floor(x / (n**n))
+        radixN[n] = digitConverter(val)
+        x = x - val * (n ** n)
+
+    return list(reversed(radixN))
+
+print(chr(0x190))
+
