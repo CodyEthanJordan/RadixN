@@ -3,18 +3,23 @@ import numpy as np
 
 def largestDigit(x):
     approx = np.real(np.exp(lambertw(np.log(x))))
-    return np.floor(approx)
+    return int(np.floor(approx))
 
 def convert(x):
     '''Converts boring base 10 number x to a string representation of its Radix N
     format.'''
     n = largestDigit(x)
     radixN = ['0'] * n
-
+    print(radixN)
     while (x > 0):
         n = largestDigit(x)
         value = np.floor(x / (n**n))
-        radixN[n] = str(value)
+        radixN[n] = digitConverter(value)
+        x = x - val * (n ** n)
+
+    return radixN
+
+print(convert(1))
 
 def digitConverter(val):
     '''Converts a base-10 representation of a single digit to a radixN digit,

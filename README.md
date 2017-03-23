@@ -51,11 +51,12 @@ to the equals sign along the top of an English keyboard. After this you enter
 characters. This is, of course, skipping those characters already used up through 74.
 
 You can remember this with the easy mnemonic:
+
 "Zero through nine is fine, then the alphabet, then the alphabet again but uppercase.
-Up to the top through numbers again! But holding shift this time and going 2 passed that,
+Up to the top through numbers again! But holding shift this time and going 2 past that,
 then on to Unicode and dawn!"
 
-Note that for especially large values you may need to lobby for the creation of new 
+Note that for especially large values you may need to lobby for the creation of new
 Unicode values. Also note that some Unicode values are unprintable or have side effects,
 see the section on "The Danger Zone" for details
 
